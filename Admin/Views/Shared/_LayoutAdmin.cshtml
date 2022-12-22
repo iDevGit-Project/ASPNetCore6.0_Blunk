@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl" direction="rtl" style="direction:rtl;">
+<head>
+
+    <base href="" />
+    <title>پنل مدیریت | خوش آمدید</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="fa_FA" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+	<link rel="canonical" href="" asp-append-version="true"/>
+	<link rel="shortcut icon" href="/assets/media/logos/favicon.png" asp-append-version="true"/>
+    <link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" asp-append-version="true"/>
+	<link href="/assets/plugins/custom/datatables/datatables.bundle.rtl.css" rel="stylesheet" type="text/css" asp-append-version="true"/>
+	<link href="/assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" asp-append-version="true"/>
+	<link href="/assets/css/style.bundle.rtl.css" rel="stylesheet" type="text/css" asp-append-version="true"/>
+    @await RenderSectionAsync("Styles",required:false)
+
+</head>
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed">
+    <!--begin::Theme mode setup on page load-->
+    <script>var defaultThemeMode = "light"; var themeMode; if (document.documentElement) { if (document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if (localStorage.getItem("data-theme") !== null) { themeMode = localStorage.getItem("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+    <!--end::Theme mode setup on page load-->
+
+    		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header">
+						<!--begin::Container-->
+							@{
+								await Html.RenderPartialAsync("_HeaderDashboard");
+							}							
+						<!--end::Container-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Content wrapper-->
+					<div class="d-flex flex-column-fluid">
+						<!--begin::Aside-->
+						<div id="kt_aside" class="aside card" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+							<!--begin::Aside menu-->
+							@{
+								await Html.RenderPartialAsync("_SideBar");
+							}							
+							<!--end::Aside menu-->
+						</div>
+						<!--end::Aside-->
+						<!--begin::Container-->
+						<div class="d-flex flex-column flex-column-fluid container-fluid">
+							<!--begin::Post-->
+							<div class="content flex-column-fluid" id="kt_content">
+								<!--begin::Row-->
+								<div class="row g-5 g-lg-10">
+									<!--begin::Col-->
+										@RenderBody()
+									<!--end::Col-->
+								</div>
+								<!--end::Row-->
+							</div>
+							<!--end::Post-->
+							<!--begin::Footer-->
+							<div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
+								<!--begin::Copyright-->
+								<div class="text-dark order-2 order-md-1">
+									<span class="text-muted fw-semibold me-1">2005-2022&copy;</span>
+									<a href="https://www.sazehpeyvand.ir" target="_blank" class="text-gray-800 text-hover-primary">تمام حقوق محفوظ است</a>
+								</div>
+								<!--end::Copyright-->
+								<!--begin::Menu-->
+								<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+									<li class="menu-item">
+										<a asp-controller="Help" asp-action="HelpIndex" target="_blank" class="menu-link px-2">درباره ما</a>
+									</li>
+									<li class="menu-item">
+										<a href="#" target="_blank" class="menu-link px-2">پشتیبانی</a>
+									</li>
+								</ul>
+								<!--end::Menu-->
+							</div>
+							<!--end::Footer-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Content wrapper-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::Drawers-->
+		<!--begin::Activities drawer-->
+
+		<!--end::Activities drawer-->
+		<!--begin::Chat drawer-->
+		<div id="kt_drawer_chat" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle" data-kt-drawer-close="#kt_drawer_chat_close">
+			<!--begin::Messenger-->
+			<div class="card w-100 rounded-0 border-0" id="kt_drawer_chat_messenger">
+				<!--begin::Card header-->
+				<div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
+					<!--begin::Title-->
+					<div class="card-title">
+						<!--begin::User-->
+						<div class="d-flex justify-content-center flex-column me-3">
+							<a href="#" class="fs-4  text-gray-900 text-hover-primary me-1 mb-2 lh-1">پنل اطلاع رسانی</a>
+							<!--begin::Info-->
+							<div class="mb-0 lh-1">
+								<span class="badge badge-success badge-circle w-10px h-10px me-1"></span>
+								<span class="fs-7 fw-semibold text-muted">فعال است</span>
+							</div>
+							<!--end::Info-->
+						</div>
+						<!--end::User-->
+					</div>
+					<!--end::Title-->
+					<!--begin::Card toolbar-->
+					<div class="card-toolbar">
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+							<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+							<span class="svg-icon svg-icon-2">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+								</svg>
+							</span>
+							<!--end::Svg Icon-->
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Card toolbar-->
+				</div>
+				<!--end::Card header-->
+				<!--begin::Card body-->
+				<div class="card-body" id="kt_drawer_chat_messenger_body">
+					<!--begin::Messages-->
+
+					<!--end::Messages-->
+				</div>
+				<!--end::Card body-->
+			</div>
+			<!--end::Messenger-->
+		</div>
+		<!--end::Chat drawer-->
+		<!--begin::Help drawer-->
+		<div id="kt_help" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="help" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'350px', 'md': '525px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_help_toggle" data-kt-drawer-close="#kt_help_close">
+			<!--begin::Card-->
+			<div class="card shadow-none rounded-0 w-100">
+				<!--begin::Header-->
+				<div class="card-header" id="kt_help_header">
+					<h5 class="card-title fw-semibold text-gray-600">راهنمای کار با پنل مدیریت</h5>
+					<div class="card-toolbar">
+						<button type="button" class="btn btn-sm btn-icon explore-btn-dismiss me-n5" id="kt_help_close">
+							<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+							<span class="svg-icon svg-icon-2">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+								</svg>
+							</span>
+							<!--end::Svg Icon-->
+						</button>
+					</div>
+				</div>
+				<!--end::Header-->
+				<!--begin::Body-->
+				<div class="card-body" id="kt_help_body">
+					<!--begin::Content-->
+
+					<!--end::Content-->
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::Card-->
+		</div>
+		<!--end::Help drawer-->
+		<!--end::Engage drawers-->
+		<!--begin::Engage toolbar-->
+		<div class="engage-toolbar d-flex position-fixed px-5  zindex-2 top-50 end-0 transform-90 mt-5 mt-lg-20 gap-2">
+			<!--begin::Help drawer toggle-->
+			<button id="kt_help_toggle" class="engage-help-toggle btn engage-btn shadow-sm px-5 rounded-top-0" title="راهنمای کار با پنل مدیریت" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click" data-bs-trigger="hover">راهنما</button>
+			<!--end::Help drawer toggle-->
+		</div>
+		<!--end::Engage toolbar-->
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+			<span class="svg-icon">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+		</div>
+		<!--end::Scrolltop-->
+
+    <script>var hostUrl = "assets/";</script>
+	<script src="/assets/plugins/global/plugins.bundle.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/scripts.bundle.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/lib/index.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/lib/xy.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/lib/percent.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/lib/radar.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/theme/Animated.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/map.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/lib/geodata/worldLow.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/geodata/continentsLow.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/geodata/usaLow.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/geodata/worldTimeZoneAreasLow.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/lib/geodata/worldTimeZonesLow.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/js/widgets.bundle.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="/assets/js/custom/widgets.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/apps/chat/chat.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/apps/file-manager/list.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/utilities/modals/create-app.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/utilities/modals/create-campaign.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/utilities/modals/users-search.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/js/custom/indicator.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/plugins/custom/fslightbox/fslightbox.bundle.js" type="text/javascript" asp-append-version="true"></script>
+	<script src="/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript" asp-append-version="true"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
+</body>
+</html>
